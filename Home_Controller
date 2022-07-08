@@ -1,0 +1,76 @@
+public class HomeController : Controller
+    {
+        NewParcel_Delivery_SDD_DBEntities db = new NewParcel_Delivery_SDD_DBEntities();
+
+        SqlConnection con = new SqlConnection();
+        SqlCommand com = new SqlCommand();
+        SqlCommand com2 = new SqlCommand();
+        SqlDataReader dr;
+
+        
+        public ActionResult Index()
+        {
+            return RedirectToAction("Verify");
+        }
+
+        void connectionString()
+        {
+            con.ConnectionString = "data source=DESKTOP-8C6F6G4\\SQLEXPRESS; database=NewParcel_Delivery_SDD_DB; integrated security=SSPI;";
+        }
+
+        public ActionResult Verify(string strusername, string strpassw, FormCollection collection)
+        {
+                connectionString();
+                        con.Open();
+                        com.Connection = con;
+                        com.CommandText = "select LoginID, UserName, [Password] from TblUSERNAMEANDPASSWORD where UserName='"+strusername+"' and [Password]='"+strpassw+"'";
+                        //com2.CommandText = "select * from TblUSER ";
+
+                        //Insert statement. An instance of TblUsers
+                        TblUSER users = new TblUSER();
+
+                        dr = com.ExecuteReader();
+
+                        if (dr.Read())
+                        {
+                            users.LoginID = Convert.ToInt32(collection["LoginID"]);
+                            users.UserName = strusername;
+                            users.Password = strpassw;
+                            //dr["UserName"];
+                            //dr["[Password]"];
+
+                             com2.CommandText = "Insert into TblUSERS values('"+users.LoginID+"','"+users.UserName+"','"+users.Password+"')";
+    
+                                
+                            con.Close();
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            con.Close();
+                            return View();
+                        }
+        }
+
+        [HttpPost]
+        public ActionResult Index(TblUSER log)
+        {   
+
+            var user = db.TblUSERS.Where(x => x.UserName == log.UserName && x.Password == log.Password).Count();
+
+            if (user > 0)
+            {
+                return RedirectToAction("Dashboard");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+    }
+}
