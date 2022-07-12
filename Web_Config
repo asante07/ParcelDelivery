@@ -1,0 +1,23 @@
+<section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+  </configSections>
+  <connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-Online-Parcel_Delivery_3App-20220611125437.mdf;Initial Catalog=aspnet-Online-Parcel_Delivery_3App-20220611125437;Integrated Security=True" providerName="System.Data.SqlClient"/>
+    <add name="NewParcel_Delivery_SDD_DBEntities" connectionString="metadata=res://*/Models.Parcel_DeliveryDBModel.csdl|res://*/Models.Parcel_DeliveryDBModel.ssdl|res://*/Models.Parcel_DeliveryDBModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-8C6F6G4\SQLEXPRESS;initial catalog=NewParcel_Delivery_SDD_DB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient"/>
+  </connectionStrings>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0"/>
+    <add key="webpages:Enabled" value="false"/>
+    <add key="ClientValidationEnabled" value="true"/>
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+  </appSettings>
+  <compilers>
+      <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CSharp.CSharpCodeProvider, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" warningLevel="4" compilerOptions="/langversion:6 /nowarn:1659;1699;1701">
+        <providerOption name="CompilerVersion" value="v4.0"/>
+        <providerOption name="WarnAsError" value="false"/>
+      </compiler>
+      <compiler language="vb;vbs;visualbasic;vbscript" extension=".vb" type="Microsoft.VisualBasic.VBCodeProvider, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" warningLevel="4" compilerOptions="/langversion:14 /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+">
+        <providerOption name="CompilerVersion" value="v4.0"/>
+        <providerOption name="OptionInfer" value="true"/>
+        <providerOption name="WarnAsError" value="false"/>
+      </compiler>
+    </compilers>
